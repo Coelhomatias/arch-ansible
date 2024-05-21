@@ -1,0 +1,50 @@
+- name: Install paru using AUR
+  kewlfft.aur.aur:
+    name: paru
+    state: present
+  become: false
+
+- name: Install linux-headers
+  pacman:
+    name: linux-headers
+    state: present
+
+- name: Install sound packages
+  pacman:
+    name:
+      - pipewire
+      - pipewire-audio
+      - pipewire-alsa
+      - pipewire-pulse
+      - pamixer
+    state: present
+
+- name: Install bluetooth packages
+  pacman:
+    name:
+      - bluez
+      - bluez-utils
+      - blueman
+      - bc
+    state: present
+  notify: Enable the bluetooth service
+
+- name: Install battery management packages
+  pacman:
+    name:
+      - tlp
+      - tlp-rdw
+      - upower
+    state: present
+
+- name: Install optional battery management tools (powertop)
+  pacman:
+    name:
+      - powertop
+    state: present
+  when: include_optional_battery_tools | default(true)
+
+- name: Install xsettingsd
+  pacman:
+    name: xsettingsd
+    state: present

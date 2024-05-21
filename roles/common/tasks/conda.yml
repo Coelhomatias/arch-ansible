@@ -1,0 +1,37 @@
+- name: Create a directory for Miniconda
+  file:
+    path: "~/miniconda3"
+    state: directory
+  become: false
+
+- name: Download Miniconda installation script
+  get_url:
+    url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    dest: "~/miniconda3/miniconda.sh"
+  become: false
+
+- name: Install Miniconda
+  shell: bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+  args:
+    creates: "~/miniconda3/bin/conda"
+  become: false
+
+- name: Remove Miniconda installation script
+  file:
+    path: "~/miniconda3/miniconda.sh"
+    state: absent
+  become: false
+
+- name: Init conda for bash
+  shell: ~/miniconda3/bin/conda init bash
+  become: false
+
+- name: Init conda for zsh
+  shell: ~/miniconda3/bin/conda init zsh
+  become: false
+  when: shell == "zsh"
+
+# - name: Update conda and configure conda-forge
+#   shell: ~/miniconda3/bin/conda update conda && ~/miniconda3/bin/conda config --add channels conda-forge --set channel_priority strict
+#   environment:
+#     PATH: "{{ ansible_env.PATH }}:/home/{{ ansible_env.USER }}/miniconda3/bin"

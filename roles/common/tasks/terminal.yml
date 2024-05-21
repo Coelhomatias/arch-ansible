@@ -1,0 +1,40 @@
+- name: Install selected terminal emulator(s)
+  pacman:
+    name: "{{ terminal_emulator }}"
+    state: present
+  when: terminal_emulator is defined
+
+- name: Install zsh
+  pacman:
+    name: zsh
+    state: present
+  when: shell == "zsh"
+
+- name: Set zsh as default shell
+  shell: chsh -s $(which zsh) "{{ ansible_env.USER }}"
+  when: shell == "zsh"
+    
+- name: Install zsh plugins
+  pacman:
+    name: 
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - zsh-completions
+    state: present
+  when: shell == "zsh"
+
+- name: Install zsh-you-should-use
+  kewlfft.aur.aur:
+    use: paru
+    name: zsh-you-should-use
+    state: present
+  become: false
+  when: shell == "zsh"
+
+- name: Install powerlevel10k
+  kewlfft.aur.aur:
+    use: paru
+    name: zsh-theme-powerlevel10k-git
+    state: present
+  become: false
+  when: shell_prompt == "powerlevel10k"

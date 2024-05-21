@@ -1,0 +1,15 @@
+- name: Install kora icon theme
+  kewlfft.aur.aur:
+    use: paru
+    name:  kora-icon-theme
+    state: present
+  become: false
+
+- name: Install volates cursors
+  kewlfft.aur.aur:
+    use: paru
+    name: 
+      - volantes-cursors-git
+      - catppuccin-cursors-mocha
+    state: present
+  become: false

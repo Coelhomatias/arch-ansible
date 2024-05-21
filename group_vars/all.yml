@@ -1,0 +1,25 @@
+
+####### Common Role Variables ########
+
+## System configuration
+include_optional_battery_tools: true
+
+## Applications
+# Every field can be a string or a list of strings
+# Leave empty if you don't want to install the application
+terminal_emulator: alacritty
+terminal_theme: catppuccin
+shell: zsh
+shell_prompt: powerlevel10k
+shell_theme: catppuccin
+
+
+
+
+####### Common Role Variables ########
+
+
+file_manager: thunar
+text_editor: nvim
+web_browser: firefox
+

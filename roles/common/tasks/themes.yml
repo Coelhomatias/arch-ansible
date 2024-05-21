@@ -1,0 +1,33 @@
+- name: Ensure the Alacritty configuration directory exists
+  file:
+    path: /home/{{ ansible_env.USER }}/.config/alacritty
+    state: directory
+  when: terminal_emulator == "alacritty"
+  become: false
+
+- name: Ensure the Alacritty themes directory exists
+  file:
+    path: /home/{{ ansible_env.USER }}/.config/alacritty/themes
+    state: directory
+  when: terminal_emulator == "alacritty"
+  become: false
+
+- name: Download catppuccin theme for Alacritty
+  get_url:
+    url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+    dest: /home/{{ ansible_env.USER }}/.config/alacritty/themes/catppuccin-mocha.toml
+  when: terminal_theme == "catppuccin"
+  become: false
+
+- name: Create a theme folder in bat's configuration directory
+  shell: mkdir -p "$(bat --config-dir)/themes"
+  become: false
+
+- name: Download Catppuccin Mocha theme file
+  shell: cd "$(bat --config-dir)/themes" && curl -O https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+  become: false
+
+- name: Rebuild bat's cache
+  shell: bat cache --build
+  become: false
+

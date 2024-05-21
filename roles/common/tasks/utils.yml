@@ -1,0 +1,33 @@
+- name: Install terminal utils
+  pacman:
+    name:
+      - eza
+      - jq
+      - ffmpegthumbnailer
+      - network-manager-applet
+      - flameshot
+      - tmux
+      - poppler
+      - zoxide
+      - fzf
+      - ripgrep
+      - bat
+      - fd
+      - btop
+      - git-delta
+      - unarchiver
+    state: present
+
+- name: Install terminal utils from AUR
+  kewlfft.aur.aur:
+    use: paru
+    name:
+      - tlrc
+      - sesh-bin
+      - ijq
+      - light
+      - rnr
+    state: present
+  notify: Add user to the video group
+  become: false
+

@@ -1,0 +1,26 @@
+- name: Update package list and upgrade all packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- include_tasks: system.yml
+- include_tasks: git.yml
+- include_tasks: fonts.yml
+- include_tasks: terminal.yml
+
+- name: Check for GPU type using lspci
+  shell: "lspci | grep -iE 'vga|display'"
+  register: gpu_info
+
+- name: Include tasks from amd.yml if AMD GPU is detected
+  include_tasks: amd.yml
+  when: "'AMD' in gpu_info.stdout"
+
+- name: Include tasks from nvidia.yml if NVIDIA GPU is detected
+  include_tasks: nvidia.yml
+  when: "'NVIDIA' in gpu_info.stdout"
+
+- include_tasks: utils.yml
+- include_tasks: docker.yml
+- include_tasks: conda.yml
+- include_tasks: themes.yml
