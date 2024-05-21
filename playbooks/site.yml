@@ -4,8 +4,8 @@
   become: yes
   roles:
     - common
-    - desktop
-    - apps
+    # - desktop
+    # - apps
 
 - name: Reboot the machine
   hosts: localhost
