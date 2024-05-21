@@ -10,6 +10,7 @@
   become: yes
   tasks:
     - name: Reboot the machine
-      ansible.builtin.reboot:
-        msg: "Reboot initiated by Ansible playbook"
-        reboot_timeout: 600
+      shell: ( sleep 10 ; reboot ) & 
+      async: 1
+      poll: 0
+      ignore_errors: yes
