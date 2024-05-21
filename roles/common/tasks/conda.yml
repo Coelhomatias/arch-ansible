@@ -2,33 +2,39 @@
   file:
     path: "~/miniconda3"
     state: directory
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Download Miniconda installation script
   get_url:
     url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     dest: "~/miniconda3/miniconda.sh"
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Install Miniconda
   shell: bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
   args:
     creates: "~/miniconda3/bin/conda"
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Remove Miniconda installation script
   file:
     path: "~/miniconda3/miniconda.sh"
     state: absent
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Init conda for bash
   shell: ~/miniconda3/bin/conda init bash
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Init conda for zsh
   shell: ~/miniconda3/bin/conda init zsh
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
   when: shell == "zsh"
 
 # - name: Update conda and configure conda-forge

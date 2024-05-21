@@ -1,7 +1,6 @@
 ---
 - name: Apply all roles
   hosts: localhost
-  become: yes
   roles:
     - common
     # - desktop

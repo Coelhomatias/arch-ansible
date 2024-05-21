@@ -3,6 +3,7 @@
     name: user.email
     scope: global
     value: '{{ git_email }}'
+  become: yes
   become_user: '{{ ansible_env.USER }}'
 
 - name: Git personal setup name
@@ -10,4 +11,5 @@
     name: user.name
     scope: global
     value: '{{ git_name }}'
+  become: yes
   become_user: '{{ ansible_env.USER }}'

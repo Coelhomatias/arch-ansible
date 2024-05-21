@@ -3,7 +3,8 @@
     use: paru
     name:  kora-icon-theme
     state: present
-  become: false
+  become: yes
+become_user: "{{ ansible_env.USER }}"
 
 - name: Install volates cursors
   kewlfft.aur.aur:
@@ -12,4 +13,5 @@
       - volantes-cursors-git
       - catppuccin-cursors-mocha
     state: present
-  become: false
+  become: yes
+become_user: "{{ ansible_env.USER }}"

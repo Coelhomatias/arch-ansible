@@ -4,6 +4,7 @@
     enabled: yes
     state: started
     daemon_reload: yes
+  become: yes
 
 - name: Enable tlp service
   systemd:
@@ -11,6 +12,7 @@
     enabled: yes
     state: started
     daemon_reload: yes
+  become: yes
 
 - name: Mask systemd-rfkill.service
   systemd:
@@ -18,6 +20,7 @@
     masked: yes
     state: stopped
     daemon_reload: yes
+  become: yes
 
 - name: Mask systemd-rfkill.socket
   systemd:
@@ -25,6 +28,7 @@
     masked: yes
     state: stopped
     daemon_reload: yes
+  become: yes
 
 - name: Enable pipewire service
   systemd:
@@ -32,6 +36,7 @@
     enabled: yes
     state: started
     daemon_reload: yes
+  become: yes
 
 - name: Enable pipewire-pulse service 
   systemd:
@@ -39,6 +44,7 @@
     enabled: yes
     state: started
     daemon_reload: yes
+  become: yes
 
 - name: Enable the docker.socket service
   systemd:
@@ -46,10 +52,11 @@
     enabled: yes
     state: started
     daemon_reload: yes
+  become: yes
 
 - name: Add user to the video group
   user:
     name: "{{ ansible_env.USER }}"
     groups: video
     append: yes
-
+  become: yes

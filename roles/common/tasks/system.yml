@@ -2,12 +2,14 @@
   kewlfft.aur.aur:
     name: paru
     state: present
-  become: false
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Install linux-headers
   pacman:
     name: linux-headers
     state: present
+  become: yes
 
 - name: Install sound packages
   pacman:
@@ -18,6 +20,7 @@
       - pipewire-pulse
       - pamixer
     state: present
+  become: yes
 
 - name: Install bluetooth packages
   pacman:
@@ -28,6 +31,7 @@
       - bc
     state: present
   notify: Enable the bluetooth service
+  become: yes
 
 - name: Install battery management packages
   pacman:
@@ -36,15 +40,19 @@
       - tlp-rdw
       - upower
     state: present
-
+  notify: Enable tlp service
+  become: yes
+  
 - name: Install optional battery management tools (powertop)
   pacman:
     name:
       - powertop
     state: present
   when: include_optional_battery_tools | default(true)
+  become: yes
 
 - name: Install xsettingsd
   pacman:
     name: xsettingsd
     state: present
+  become: yes

@@ -1,7 +1,6 @@
 ---
 - name: Apply common configurations and install common tools
   hosts: localhost
-  become: yes
   roles:
     - common
 

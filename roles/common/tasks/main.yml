@@ -2,6 +2,7 @@
   pacman:
     update_cache: yes
     upgrade: yes
+  become: yes
 
 - include_tasks: system.yml
 - include_tasks: git.yml
@@ -11,6 +12,7 @@
 - name: Check for GPU type using lspci
   shell: "lspci | grep -iE 'vga|display'"
   register: gpu_info
+  become: yes
 
 - name: Include tasks from amd.yml if AMD GPU is detected
   include_tasks: amd.yml
