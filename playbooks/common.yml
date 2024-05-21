@@ -4,3 +4,12 @@
   become: yes
   roles:
     - common
+
+- name: Reboot the machine
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Reboot the machine
+      ansible.builtin.reboot:
+        msg: "Reboot initiated by Ansible playbook"
+        reboot_timeout: 600
