@@ -2,7 +2,7 @@
   systemd:
     name: sddm
     enabled: yes
-    state: started
+    state: restarted
     daemon_reload: yes
   become: yes
   when: display_manager == "sddm"
