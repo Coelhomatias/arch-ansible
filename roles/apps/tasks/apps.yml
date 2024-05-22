@@ -35,6 +35,7 @@
       - teams-for-linux
       - nchat-git
       - zapzap
+      - toipe
     state: present
   become: yes
   become_user: "{{ ansible_env.USER }}"

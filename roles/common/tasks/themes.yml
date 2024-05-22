@@ -18,7 +18,7 @@
   get_url:
     url: https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
     dest: /home/{{ ansible_env.USER }}/.config/alacritty/themes/catppuccin-mocha.toml
-  when: terminal_theme == "catppuccin"
+  when: terminal_theme == "catppuccin" and terminal_emulator == "alacritty"
   become: yes
   become_user: "{{ ansible_env.USER }}"
 
