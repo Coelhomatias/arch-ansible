@@ -26,3 +26,4 @@
 - include_tasks: docker.yml
 - include_tasks: conda.yml
 - include_tasks: themes.yml
+- include_tasks: dotfiles.yml

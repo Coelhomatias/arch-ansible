@@ -13,9 +13,13 @@
       - ripgrep
       - bat
       - fd
+      - bc
       - btop
       - git-delta
       - unarchiver
+      - stow
+      - thefuck
+      - playerctl
     state: present
   become: yes
 

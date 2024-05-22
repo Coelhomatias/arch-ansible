@@ -1,0 +1,9 @@
+- name: Update package list and upgrade all packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  become: yes
+
+- include_tasks: terminal.yml
+- include_tasks: apps.yml
+- include_tasks: themes.yml

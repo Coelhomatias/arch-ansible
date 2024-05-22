@@ -1,0 +1,6 @@
+- name: Install the foot terminal emulator
+  pacman:
+    name: foot
+    state: present
+  become: yes
+  when: terminal_emulator == "foot"

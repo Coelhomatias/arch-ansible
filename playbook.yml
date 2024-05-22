@@ -3,7 +3,7 @@
   roles:
     - common
     # - desktop
-    # - apps
+    - apps
 
 - name: Reboot the machine
   hosts: localhost

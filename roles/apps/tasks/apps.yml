@@ -1,0 +1,40 @@
+- name: Install apps from pacman
+  pacman:
+    name: 
+      - spotify-launcher
+      - code
+      - discord
+      - obsidian
+      - rclone
+      - vlc
+      - yazi
+      - neovim
+    state: present
+  become: yes
+
+- name: Install thunar file manager
+  pacman:
+    name: 
+      - thunar
+      - gvfs
+      - gvfs-mtp
+      - thunar-archive-plugin
+      - thunar-media-tags-plugin
+      - tumbler
+      - thunar-volman
+    state: present
+  become: yes
+
+- name: Install apps from AUR
+  kewlfft.aur.aur:
+    use: paru
+    name: 
+      - microsoft-edge-stable-bin
+      - brave-bin
+      - skypeforlinux-bin
+      - teams-for-linux
+      - nchat-git
+      - zapzap
+    state: present
+  become: yes
+  become_user: "{{ ansible_env.USER }}"

@@ -1,0 +1,6 @@
+- name: Install sddm display manager
+  pacman:
+    name: sddm
+    state: present
+  become: yes
+  when: display_manager == "sddm"

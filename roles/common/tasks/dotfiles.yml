@@ -1,0 +1,18 @@
+- name: Clone the dotfiles repository
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: /home/{{ ansible_env.USER }}/.dotfiles
+    single_branch: yes
+    version: "{{ dotfiles_branch }}"
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Stow the dotfiles
+  shell: cd /home/{{ ansible_env.USER }}/.dotfiles && stow --adopt .
+  become: yes
+  become_user: "{{ ansible_env.USER }}" 
+
+- name: Restore git repo
+  shell: cd /home/{{ ansible_env.USER }}/.dotfiles && git restore .
+  become: yes
+  become_user: "{{ ansible_env.USER }}"

@@ -1,0 +1,13 @@
+- name: Update package list and upgrade all packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  become: yes
+
+- include_tasks: hyprland.yml
+  when: window_manager == "hyprland"
+
+- include_tasks: display_managers.yml
+  when: display_manager is defined
+
+- include_tasks: themes.yml
