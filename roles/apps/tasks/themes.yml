@@ -4,7 +4,7 @@
     name:  kora-icon-theme
     state: present
   become: yes
-become_user: "{{ ansible_env.USER }}"
+  become_user: "{{ ansible_env.USER }}"
 
 - name: Install volates cursors
   kewlfft.aur.aur:
@@ -14,4 +14,4 @@ become_user: "{{ ansible_env.USER }}"
       - catppuccin-cursors-mocha
     state: present
   become: yes
-become_user: "{{ ansible_env.USER }}"
+  become_user: "{{ ansible_env.USER }}"
