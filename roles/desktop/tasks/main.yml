@@ -4,10 +4,12 @@
     upgrade: yes
   become: yes
 
-- include_tasks: hyprland.yml
+- name: Install hyprland
+  include_tasks: hyprland.yml
   when: window_manager == "hyprland"
 
-- include_tasks: display_managers.yml
+- name: Install display manager
+  include_tasks: display_managers.yml
   when: display_manager is defined
 
 - include_tasks: themes.yml
