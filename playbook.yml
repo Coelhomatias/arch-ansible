@@ -2,7 +2,7 @@
   hosts: localhost
   roles:
     - common
-    # - desktop
+    - desktop
     - apps
 
 - name: Reboot the machine
