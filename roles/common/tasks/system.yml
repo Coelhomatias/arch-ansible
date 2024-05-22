@@ -7,7 +7,9 @@
 
 - name: Install linux-headers
   pacman:
-    name: linux-headers
+    name: 
+      - linux-headers
+      - base-devel
     state: present
   become: yes
 

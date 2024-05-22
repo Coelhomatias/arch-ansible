@@ -27,11 +27,13 @@
 
 - name: Install apps from AUR
   kewlfft.aur.aur:
+    use: paru
     name: 
       - microsoft-edge-stable-bin
       - brave-bin
       - skypeforlinux-bin
-      - teams-for-linux
+      - teams-for-linux-bin
+      - teams-for-linux-wayland-hook
       - nchat-git
       - zapzap
       - toipe

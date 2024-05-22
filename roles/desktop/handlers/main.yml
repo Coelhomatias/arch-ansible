@@ -1,0 +1,8 @@
+- name: Enable the sddm service
+  systemd:
+    name: sddm
+    enabled: yes
+    state: started
+    daemon_reload: yes
+  become: yes
+  when: display_manager == "sddm"

@@ -20,6 +20,7 @@
       - stow
       - thefuck
       - playerctl
+      - fastfetch
     state: present
   become: yes
 

@@ -4,3 +4,4 @@
     state: present
   become: yes
   when: display_manager == "sddm"
+  notify: Enable the sddm service
