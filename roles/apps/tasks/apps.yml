@@ -34,7 +34,7 @@
       - teams-for-linux-bin
       - teams-for-linux-wayland-hook
       - nchat-git
-      - vlc-git
+      # - vlc-git
       - zapzap
       - toipe
     state: present
