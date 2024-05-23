@@ -19,15 +19,8 @@
       - terminus-font
       - ttf-croscore
       - ttf-jetbrains-mono-nerd
+      - ttf-juliamono-nerd-font
     state: present
   become: yes
-
-- name: Install meslo Nerd Font
-  kewlfft.aur.aur:
-    use: paru
-    name: ttf-meslo-nerd-font-powerlevel10k
-    state: present
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
 
   

@@ -1,6 +1,8 @@
 - name: Install Hyperland
   pacman:
-    name: hyprland
+    name: 
+      - hyprland
+      - hyprpicker
     state: present
   become: yes
 

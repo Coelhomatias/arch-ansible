@@ -35,9 +35,13 @@
       - teams-for-linux-bin
       - teams-for-linux-wayland-hook
       - nchat-git
-      # - vlc-git
       - zapzap
       - toipe
     state: present
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Install bun
+  shell: curl -fsSL https://bun.sh/install | bash
   become: yes
   become_user: "{{ ansible_env.USER }}"

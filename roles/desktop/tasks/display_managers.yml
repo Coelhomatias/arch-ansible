@@ -4,4 +4,8 @@
     state: present
   become: yes
   when: display_manager == "sddm"
-  notify: Enable the sddm service
+
+- name: Enable sddm service
+  shell: systemctl enable sddm
+  become: yes
+  when: display_manager == "sddm"

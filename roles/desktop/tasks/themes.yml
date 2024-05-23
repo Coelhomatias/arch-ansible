@@ -35,7 +35,9 @@
 - name: Install Catppuccin theme for grub
   kewlfft.aur.aur:
     use: paru
-    name: catppuccin-mocha-grub-theme-git
+    name: 
+      - catppuccin-mocha-grub-theme-git
+      - catppuccin-gtk-theme-mocha
     state: present
 
 - name: Replace GRUB_THEME in /etc/default/grub

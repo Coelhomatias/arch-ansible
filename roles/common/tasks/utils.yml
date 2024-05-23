@@ -17,10 +17,12 @@
       - btop
       - git-delta
       - unarchiver
+      - unzip
       - stow
-      - thefuck
       - playerctl
       - fastfetch
+      - nwg-look
+      - man
     state: present
   become: yes
 

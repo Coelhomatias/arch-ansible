@@ -23,6 +23,7 @@
       - pamixer
     state: present
   become: yes
+  notify: Enable audio services
 
 - name: Install bluetooth packages
   pacman:
@@ -34,6 +35,7 @@
     state: present
   notify: Enable the bluetooth service
   become: yes
+  notify: Enable the bluetooth service
 
 - name: Install battery management packages
   pacman:
@@ -44,6 +46,7 @@
     state: present
   notify: Enable tlp service
   become: yes
+  notify: Enable battery management tools
   
 - name: Install optional battery management tools (powertop)
   pacman:
