@@ -35,7 +35,6 @@
     state: present
   notify: Enable the bluetooth service
   become: yes
-  notify: Enable the bluetooth service
 
 - name: Install battery management packages
   pacman:
