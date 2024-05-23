@@ -6,7 +6,6 @@
       - discord
       - obsidian
       - rclone
-      - vlc
       - yazi
       - neovim
     state: present
@@ -35,6 +34,7 @@
       - teams-for-linux-bin
       - teams-for-linux-wayland-hook
       - nchat-git
+      - vlc-git
       - zapzap
       - toipe
     state: present
