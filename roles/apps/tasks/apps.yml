@@ -7,6 +7,7 @@
       - obsidian
       - rclone
       - yazi
+      - vlc
       - neovim
     state: present
   become: yes
