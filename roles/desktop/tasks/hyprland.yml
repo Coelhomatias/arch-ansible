@@ -1,17 +1,15 @@
 - name: Install Hyperland
   pacman:
-    name: 
-      - hyprland
-      - hyprpicker
+    name: hyprland
     state: present
   become: yes
 
-- name: Install ags and walker
+- name: Install ags and hyprpicker
   kewlfft.aur.aur:
    use: paru
    name: 
     - aylurs-gtk-shell
-    - walker
+    - hyprpicker
    state: present
   become: yes
   become_user: "{{ ansible_env.USER }}"
