@@ -22,7 +22,6 @@
       - playerctl
       - fastfetch
       - nwg-look
-      - nwg-displays
       - man
       - zathura
       - zathura-pdf-poppler
@@ -41,6 +40,7 @@
       - ijq
       - light
       - rnr
+      - nwg-displays
     state: present
   notify: Add user to the video group
   become: yes
