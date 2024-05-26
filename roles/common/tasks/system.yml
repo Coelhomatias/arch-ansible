@@ -44,7 +44,6 @@
       - tlp-rdw
       - upower
     state: present
-  notify: Enable tlp service
   become: yes
   notify: Enable battery management tools
   
