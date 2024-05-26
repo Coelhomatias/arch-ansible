@@ -1,6 +1,12 @@
-- name: Install Hyperland
+- name: Install Hyprland
   pacman:
-    name: hyprland
+    name: 
+      - hyprland
+      - hyprpaper
+      - hypridle
+      - hyprlock
+      - xdg-desktop-portal-hyprland
+      - dart-sass
     state: present
   become: yes
 
@@ -14,3 +20,12 @@
   become: yes
   become_user: "{{ ansible_env.USER }}"
   
+
+- name: Install bun
+  shell: curl -fsSL https://bun.sh/install | bash
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
+
+- name: Symlink to /usr/bin
+  shell: sudo ln -s /home/{{ ansible_env.USER }}/.bun/bin/bun /usr/bin/bun
+  become: yes

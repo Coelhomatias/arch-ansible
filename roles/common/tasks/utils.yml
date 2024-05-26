@@ -22,7 +22,13 @@
       - playerctl
       - fastfetch
       - nwg-look
+      - nwg-displays
       - man
+      - zathura
+      - zathura-pdf-poppler
+      - zathura-djvu
+      - zathura-ps
+      - zathura-cb
     state: present
   become: yes
 

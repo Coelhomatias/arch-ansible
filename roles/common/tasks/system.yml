@@ -21,6 +21,7 @@
       - pipewire-alsa
       - pipewire-pulse
       - pamixer
+      - wireplumber
     state: present
   become: yes
   notify: Enable audio services
@@ -58,5 +59,23 @@
 - name: Install xsettingsd
   pacman:
     name: xsettingsd
+    state: present
+  become: yes
+
+- name: Install xdg-user-dirs
+  pacman:
+    name: xdg-user-dirs
+    state: present
+  become: yes
+
+- name: Install xdg-utils
+  pacman:
+    name: xdg-utils
+    state: present
+  become: yes
+
+- name: Install gnome-keyring
+  pacman:
+    name: gnome-keyring
     state: present
   become: yes
