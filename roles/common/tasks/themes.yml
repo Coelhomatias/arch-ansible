@@ -22,18 +22,4 @@
   become: yes
   become_user: "{{ ansible_env.USER }}"
 
-- name: Create a theme folder in bat's configuration directory
-  shell: mkdir -p "$(bat --config-dir)/themes"
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
-
-- name: Download Catppuccin Mocha theme file
-  shell: cd "$(bat --config-dir)/themes" && curl -O https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
-
-- name: Rebuild bat's cache
-  shell: bat cache --build
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
 
