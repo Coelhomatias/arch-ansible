@@ -34,21 +34,15 @@
   listen: Enable battery management tools
 
 - name: Enable pipewire service
-  systemd:
-    name: pipewire
-    enabled: yes
-    state: restarted
-    daemon_reload: yes
+  shell: systemctl --user enable --now pipewire
   become: yes
+  become_user: "{{ ansible_env.USER }}"
   listen: Enable audio services
 
 - name: Enable pipewire-pulse service 
-  systemd:
-    name: pipewire-pulse
-    enabled: yes
-    state: restarted
-    daemon_reload: yes
+  shell: systemctl --user enable --now pipewire-pulse
   become: yes
+  become_user: "{{ ansible_env.USER }}"
   listen: Enable audio services
 
 - name: Enable the docker.socket service
