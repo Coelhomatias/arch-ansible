@@ -14,6 +14,7 @@
       - bat
       - fd
       - bc
+      - brightnessctl
       - btop
       - git-delta
       - unarchiver
@@ -38,7 +39,6 @@
       - tlrc
       - sesh-bin
       - ijq
-      - light
       - rnr
       - nwg-displays
     state: present
