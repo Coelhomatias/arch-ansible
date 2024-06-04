@@ -73,8 +73,11 @@
     state: present
   become: yes
 
-- name: Install gnome-keyring
+- name: Install system utils
   pacman:
-    name: gnome-keyring
+    name:
+      - lm_sensors
+      - gnome-bluetooth-3.0
+      - gnome-keyring
     state: present
   become: yes

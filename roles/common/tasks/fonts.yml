@@ -21,15 +21,7 @@
       - ttf-jetbrains-mono-nerd
     state: present
   become: yes
-
-- name: Install additional fonts from AUR
-  kewlfft.aur.aur:
-    use: paru
-    name:
-      - ttf-juliamono-nerd-font
-    state: present
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
+  notify: Rebuild font cache
 
   
 

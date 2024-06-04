@@ -42,6 +42,7 @@
       - ijq
       - rnr
       - nwg-displays
+      - ifstat
     state: present
   notify: Add user to the video group
   become: yes
