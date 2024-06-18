@@ -6,6 +6,14 @@
     daemon_reload: yes
   become: yes
 
+- name: Enable sshd service
+  systemd:
+    name: sshd
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+  become: yes
+
 - name: Enable tlp service
   systemd:
     name: tlp
@@ -39,7 +47,7 @@
   become_user: "{{ ansible_env.USER }}"
   listen: Enable audio services
 
-- name: Enable pipewire-pulse service 
+- name: Enable pipewire-pulse service
   shell: systemctl --user enable --now pipewire-pulse
   become: yes
   become_user: "{{ ansible_env.USER }}"
@@ -56,7 +64,7 @@
 - name: Add user to the video group
   user:
     name: "{{ ansible_env.USER }}"
-    groups: 
+    groups:
       - video
       - input
     append: yes
@@ -71,7 +79,7 @@
   shell: cd /home/{{ ansible_env.USER }}/.dotfiles && stow --adopt .
   become: yes
   become_user: "{{ ansible_env.USER }}"
-  listen: Dotfiles 
+  listen: Dotfiles
 
 - name: Restore git repo
   shell: cd /home/{{ ansible_env.USER }}/.dotfiles && git restore .

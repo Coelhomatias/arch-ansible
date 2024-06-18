@@ -7,11 +7,18 @@
 
 - name: Install linux-headers
   pacman:
-    name: 
+    name:
       - linux-headers
       - base-devel
     state: present
   become: yes
+
+- name: Install openssh
+  pacman:
+    name: openssh
+    state: present
+  become: yes
+  notify: Enable sshd service
 
 - name: Install sound packages
   pacman:
@@ -46,7 +53,7 @@
     state: present
   become: yes
   notify: Enable battery management tools
-  
+
 - name: Install optional battery management tools (powertop)
   pacman:
     name:

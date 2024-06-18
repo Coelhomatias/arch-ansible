@@ -43,6 +43,7 @@
       - rnr
       - nwg-displays
       - ifstat
+      - bluetui
     state: present
   notify: Add user to the video group
   become: yes
