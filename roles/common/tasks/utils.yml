@@ -29,6 +29,7 @@
       - zathura-djvu
       - zathura-ps
       - zathura-cb
+      - gitleaks
     state: present
   become: yes
   notify: Rebuild bat's cache
@@ -48,4 +49,3 @@
   notify: Add user to the video group
   become: yes
   become_user: "{{ ansible_env.USER }}"
-

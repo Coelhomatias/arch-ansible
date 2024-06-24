@@ -16,10 +16,10 @@
   shell: chsh -s $(which zsh) "{{ ansible_env.USER }}"
   when: shell == "zsh"
   become: yes
-    
+
 - name: Install zsh plugins
   pacman:
-    name: 
+    name:
       - zsh-autosuggestions
       - zsh-syntax-highlighting
       - zsh-completions
@@ -44,3 +44,12 @@
   become: yes
   become_user: "{{ ansible_env.USER }}"
   when: shell_prompt == "powerlevel10k"
+
+- name: Install xdg-terminal-exec
+  kewlfft.aur.aur:
+    use: paru
+    name: xdg-terminal-exec-git
+    state: present
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
+  when: terminal_emulator is defined
