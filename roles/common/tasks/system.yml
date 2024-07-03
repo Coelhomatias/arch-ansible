@@ -29,6 +29,7 @@
       - pipewire-pulse
       - pamixer
       - wireplumber
+      - pavucontrol
     state: present
   become: yes
   notify: Enable audio services
@@ -40,6 +41,7 @@
       - bluez-utils
       - blueman
       - bc
+      - gnome-bluetooth-3.0
     state: present
   notify: Enable the bluetooth service
   become: yes

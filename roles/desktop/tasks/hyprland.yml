@@ -1,31 +1,36 @@
 - name: Install Hyprland
   pacman:
-    name: 
+    name:
       - hyprland
       - hyprpaper
       - hypridle
       - hyprlock
       - xdg-desktop-portal-hyprland
       - dart-sass
+      - hyprwayland-scanner
+      - cpio
     state: present
   become: yes
 
 - name: Install ags and hyprpicker
   kewlfft.aur.aur:
-   use: paru
-   name: 
-    - aylurs-gtk-shell
-    - hyprpicker
-   state: present
+    use: paru
+    name:
+      - aylurs-gtk-shell
+      - hyprpicker
+    state: present
   become: yes
   become_user: "{{ ansible_env.USER }}"
-  
 
 - name: Install bun
   shell: curl -fsSL https://bun.sh/install | bash
   become: yes
   become_user: "{{ ansible_env.USER }}"
 
-# - name: Symlink to /usr/bin
-#   shell: ln -s /home/{{ ansible_env.USER }}/.bun/bin/bun /usr/bin/bun
+- name: Symlink to /usr/bin
+  shell: ln -s /home/{{ ansible_env.USER }}/.bun/bin/bun /usr/bin/bun
+  become: yes
+# - name: Update hyprpm
+#   shell: hyprpm update -f
 #   become: yes
+#   become_user: "{{ ansible_env.USER }}"

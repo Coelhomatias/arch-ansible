@@ -4,7 +4,7 @@
       - eza
       - jq
       - ffmpegthumbnailer
-      - network-manager-applet
+      - nm-connection-editor
       - flameshot
       - tmux
       - poppler
@@ -30,6 +30,7 @@
       - zathura-ps
       - zathura-cb
       - gitleaks
+      - sysstat
     state: present
   become: yes
   notify: Rebuild bat's cache
