@@ -4,6 +4,7 @@
       - rclone
       - yazi
       - neovim
+      - easyeffects
     state: present
   become: yes
 
@@ -20,6 +21,9 @@
       - com.skype.Client
       - com.rtosta.zapzap
       - com.github.tchx84.Flatseal
+      - com.stremio.Stremio
+      - io.github.flattool.Warehouse
+      - io.github.giantpinkrobots.flatsweep
     state: present
 
 - name: Install thunar file manager
