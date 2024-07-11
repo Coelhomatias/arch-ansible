@@ -1,0 +1,5 @@
+- name: Install flatpak
+  pacman:
+    name: flatpak
+    state: present
+  become: yes

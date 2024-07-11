@@ -1,20 +1,30 @@
 - name: Install apps from pacman
   pacman:
-    name: 
-      - spotify-launcher
-      - code
-      - discord
-      - obsidian
+    name:
       - rclone
       - yazi
-      - vlc
       - neovim
     state: present
   become: yes
 
+- name: Install flatpaks
+  flatpak:
+    name:
+      - com.spotify.Client
+      - com.visualstudio.code
+      - com.discordapp.Discord
+      - md.obsidian.Obsidian
+      - org.videolan.VLC
+      - com.microsoft.Edge
+      - com.brave.Browser
+      - com.skype.Client
+      - com.rtosta.zapzap
+      - com.github.tchx84.Flatseal
+    state: present
+
 - name: Install thunar file manager
   pacman:
-    name: 
+    name:
       - thunar
       - gvfs
       - gvfs-mtp
@@ -28,14 +38,11 @@
 - name: Install apps from AUR
   kewlfft.aur.aur:
     use: paru
-    name: 
-      - microsoft-edge-stable-bin
-      - brave-bin
+    name:
       - skypeforlinux-bin
       - teams-for-linux-bin
       - teams-for-linux-wayland-hook
       - nchat-git
-      - zapzap
       - toipe
     state: present
   become: yes

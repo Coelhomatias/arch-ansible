@@ -6,6 +6,7 @@
       - hypridle
       - hyprlock
       - xdg-desktop-portal-hyprland
+      - xdg-desktop-portal-gtk
       - dart-sass
       - hyprwayland-scanner
       - cpio

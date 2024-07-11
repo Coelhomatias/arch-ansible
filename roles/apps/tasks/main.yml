@@ -5,5 +5,6 @@
   become: yes
 
 - include_tasks: terminal.yml
+- include_tasks: flatpak.yml
 - include_tasks: apps.yml
 - include_tasks: themes.yml
