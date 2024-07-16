@@ -23,6 +23,13 @@
   become: yes
   become_user: "{{ ansible_env.USER }}"
 
+- name: Install gtk notification lib
+  pacman:
+    name:
+      - libdbusmenu-gtk3
+    state: present
+  become: yes
+
 - name: Install bun
   shell: curl -fsSL https://bun.sh/install | bash
   become: yes
