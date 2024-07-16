@@ -1,8 +1,8 @@
 - name: Install sddm-astronaut-theme dependencies
   pacman:
     name:
-      - qt6-5compat 
-      - qt6-declarative 
+      - qt6-5compat
+      - qt6-declarative
       - qt6-svg
     state: present
   become: yes
@@ -35,7 +35,7 @@
 - name: Install Catppuccin theme for grub
   kewlfft.aur.aur:
     use: paru
-    name: 
+    name:
       - catppuccin-mocha-grub-theme-git
       - catppuccin-gtk-theme-mocha
     state: present
@@ -43,7 +43,7 @@
 - name: Replace GRUB_THEME in /etc/default/grub
   lineinfile:
     path: /etc/default/grub
-    regexp: '^GRUB_THEME='
+    regexp: "^GRUB_THEME="
     line: 'GRUB_THEME="/usr/share/grub/themes/catppuccin-mocha/theme.txt"'
   become: yes
 
