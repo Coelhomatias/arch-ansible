@@ -1,6 +1,8 @@
 - name: Install apps from pacman
   pacman:
     name:
+      - code
+      - vlc
       - rclone
       - yazi
       - neovim
@@ -12,10 +14,8 @@
   flatpak:
     name:
       - com.spotify.Client
-      - com.visualstudio.code
       - com.discordapp.Discord
       - md.obsidian.Obsidian
-      - org.videolan.VLC
       - com.microsoft.Edge
       - com.brave.Browser
       - com.skype.Client
