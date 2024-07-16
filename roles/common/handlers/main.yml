@@ -81,6 +81,12 @@
   become_user: "{{ ansible_env.USER }}"
   listen: Dotfiles
 
+- name: Apply GTK themes
+  shell: nwg-look -a
+  become: yes
+  become_user: "{{ ansible_env.USER }}"
+  listen: Dotfiles
+
 - name: Restore git repo
   shell: cd /home/{{ ansible_env.USER }}/.dotfiles && git restore .
   become: yes

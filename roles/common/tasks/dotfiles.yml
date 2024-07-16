@@ -7,8 +7,3 @@
   become: yes
   become_user: "{{ ansible_env.USER }}"
   notify: Dotfiles
-
-- name: Apply Gtk theme using nwg-look
-  shell: nwg-look -a
-  become: yes
-  become_user: "{{ ansible_env.USER }}"
