@@ -36,7 +36,7 @@
   become_user: "{{ ansible_env.USER }}"
 
 - name: Symlink to /usr/bin
-  shell: ln -s /home/{{ ansible_env.USER }}/.bun/bin/bun /usr/bin/bun
+  shell: ln -sf /home/{{ ansible_env.USER }}/.bun/bin/bun /usr/bin/bun
   become: yes
 # - name: Update hyprpm
 #   shell: hyprpm update -f
