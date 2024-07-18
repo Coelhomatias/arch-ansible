@@ -46,7 +46,7 @@
       - skypeforlinux-bin
       - teams-for-linux-bin
       - teams-for-linux-wayland-hook
-      - nchat-git
+      - nchat
       - toipe
     state: present
   become: yes
