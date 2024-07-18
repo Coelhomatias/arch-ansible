@@ -39,7 +39,7 @@
   kewlfft.aur.aur:
     use: paru
     name:
-      - tlrc
+      - tlrc-bin
       - sesh-bin
       - ijq
       - rnr
